@@ -1,6 +1,15 @@
+alias ls='env ls -apG'
+alias lt='env ls -altrpG'
+
+alias macvim='open /Applications/MacVim.app --args'
+
 # nixpath and opam are set at the same time, so we just check for nix but really we should check for both,
-if [ -z $NIX_PATH ]; then
+
+if [ -z $NIX_PATH  ]; then
 	echo 'NIX_PATH not set, setting NIX_PATH'
 	eval `opam config env`
 	source /Users/gregory.nisbet/.nix-profile/etc/profile.d/nix.sh
+	export APPDYNAMICS_HOME="$HOME/Workspace/appdynamics/codebase"
+	echo 'exporting APPDYNAMICS_HOME'
 fi
+
